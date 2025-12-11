@@ -85,6 +85,7 @@
             --report-text: #1e293b;
         }
 
+
         [data-theme="light"] {
             --bg-gradient-1: #8EC5FC;
             --bg-gradient-2: #E0C3FC;
@@ -108,15 +109,18 @@
             --accent-glow: rgba(99, 102, 241, 0.4);
         }
 
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+
         html {
             scroll-behavior: smooth;
         }
+
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
@@ -129,11 +133,13 @@
             overflow-x: hidden;
         }
 
+
         @keyframes gradientShift {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
+
 
         /* Glassmorphism Card */
         .glass-card {
@@ -146,12 +152,14 @@
             transition: all 0.3s ease;
         }
 
+
         .glass-card:hover {
             background: var(--glass-bg);
             border-color: var(--accent-glow);
             transform: translateY(-5px);
             box-shadow: 0 12px 40px var(--accent-glow);
         }
+
 
         /* Smooth input transitions */
         input, textarea, select {
@@ -161,9 +169,11 @@
             transition: all 0.3s ease !important;
         }
 
+
         input::placeholder, textarea::placeholder {
             color: var(--text-secondary) !important;
         }
+
 
         input:focus, textarea:focus, select:focus {
             transform: translateY(-2px);
@@ -171,12 +181,14 @@
             border-color: var(--accent-glow) !important;
         }
 
+
         /* Button Animations */
         .btn-modern {
             position: relative;
             overflow: hidden;
             transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
+
 
         .btn-modern::before {
             content: '';
@@ -191,28 +203,34 @@
             transition: width 0.5s, height 0.5s;
         }
 
+
         .btn-modern:hover::before {
             width: 300px;
             height: 300px;
         }
+
 
         .btn-modern:hover {
             transform: translateY(-4px);
             box-shadow: 0 15px 40px var(--accent-glow);
         }
 
+
         .btn-modern:active {
             transform: translateY(-2px);
         }
+
 
         /* Form Step Animation */
         .form-step {
             animation: fadeInUp 0.6s ease-out forwards;
         }
 
+
         .form-step.hidden {
             display: none;
         }
+
 
         /* Progress Bar Animation */
         .progress-line {
@@ -222,20 +240,24 @@
             transition: width 0.5s ease;
         }
 
+
         /* Step Indicator Pulse */
         .step-indicator {
             transition: all 0.3s ease;
             position: relative;
         }
 
+
         .step-indicator.active {
             animation: glow 2s infinite;
         }
+
 
         /* Smooth Page Transitions */
         body {
             animation: fadeInUp 0.8s ease-out;
         }
+
 
         /* Responsive Adjustments */
         @media (max-width: 640px) {
@@ -243,26 +265,31 @@
                 animation: fadeInUp 0.5s ease-out forwards;
             }
 
+
             .glass-card {
                 padding: 1.25rem !important;
                 border-radius: 16px;
             }
         }
 
+
         /* Enhanced Input Styling */
         .form-input {
             position: relative;
         }
+
 
         .form-input input::placeholder,
         .form-input textarea::placeholder {
             transition: color 0.3s ease;
         }
 
+
         .form-input input:focus::placeholder,
         .form-input textarea:focus::placeholder {
             color: rgba(59, 130, 246, 0.5);
         }
+
 
         /* Gradient Text */
         .gradient-text {
@@ -271,6 +298,7 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
+
 
         /* Success Animation */
         @keyframes slideDown {
@@ -284,9 +312,11 @@
             }
         }
 
+
         .success-message {
             animation: slideDown 0.6s ease-out;
         }
+
 
         /* Nav Background Blur */
         .nav-blur {
@@ -297,7 +327,9 @@
             transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
+
         /* Theme Toggle Button */
+        #theme-toggle {
             background : var(--glass-bg);
             border : 1px solid var(--glass-border);
             box-shadow : 0 4px 12px var(--shadow-color);
@@ -306,9 +338,11 @@
             transition : all 0.3s ease;
         }
 
+        #theme-toggle:hover {
             transform: scale(1.1);
             box-shadow: 0 6px 16px var(--shadow-color);
         }
+
 
         /* Smooth Reference Content Toggle */
         .reference-content {
@@ -318,10 +352,12 @@
             border-top: 1px solid var(--glass-border);
         }
 
+
         .reference-content.show {
             display: block;
             animation: fadeInUp 0.4s ease-out;
         }
+
 
         .reference-toggle {
             cursor: pointer;
@@ -330,12 +366,25 @@
             color: var(--text-primary);
         }
 
+
         .reference-toggle:hover {
             color: var(--accent-glow);
+        }
+
+        .error-message {
+            color: #ef4444;
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+            display: none;
+        }
+
+        .error-message.show {
+            display: block;
         }
     </style>
 </head>
 <body data-theme="dark">
+
 
     <!-- Navigation -->
     <nav class="fixed w-full top-0 z-50 nav-blur">
@@ -353,6 +402,7 @@
         </div>
     </nav>
 
+
     <!-- Main Container -->
     <div class="pt-20 sm:pt-28 pb-12 px-4 sm:px-6 max-w-4xl mx-auto">
         
@@ -366,6 +416,7 @@
                 <div id="step-indicator-3" class="step-indicator w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center font-bold border-2 bg-slate-700/50 border-slate-600 text-gray-400 transition-all backdrop-blur-sm">3</div>
             </div>
         </div>
+
 
         <!-- Form Container -->
         <form id="recruitment-form" class="glass-card p-6 sm:p-8 md:p-10 space-y-6">
@@ -404,6 +455,7 @@
                         </div>
                     </div>
 
+
                     <div class="space-y-4 mt-6 pt-6 border-t border-slate-700/50">
                         <div class="form-input">
                             <label class="block text-xs sm:text-sm font-semibold text-gray-300 mb-2">GitHub Link (Optional)</label>
@@ -420,6 +472,7 @@
                     </div>
                 </div>
             </div>
+
 
             <!-- Step 2: Mission Selection -->
             <div id="step-2" class="form-step hidden">
@@ -445,30 +498,37 @@
                         </select>
                     </div>
 
+
                     <div class="grid grid-cols-1 gap-4 sm:gap-5 space-y-4 pt-4 border-t border-slate-700/50">
                         <div class="form-input">
                             <label class="block text-xs sm:text-sm font-semibold text-gray-300 mb-2">Introduce Yourself <span class="text-red-400">*</span></label>
-                            <textarea name="introduceSelf" required rows="3" placeholder="Tell us about yourself..." class="w-full px-4 py-3 rounded-xl border border-slate-600/50 bg-slate-800/50 text-white placeholder-gray-500 focus:ring-2 focus:ring-blue-500 outline-none backdrop-blur-sm transition-all duration-300 resize-none"></textarea>
+                            <textarea name="introduceSelf" rows="3" placeholder="Tell us about yourself..." class="w-full px-4 py-3 rounded-xl border border-slate-600/50 bg-slate-800/50 text-white placeholder-gray-500 focus:ring-2 focus:ring-blue-500 outline-none backdrop-blur-sm transition-all duration-300 resize-none" required></textarea>
+                            <span class="error-message"></span>
                         </div>
                         <div class="form-input">
-                            <label class="block text-xs sm:text-sm font-semibold text-gray-300 mb-2">Why do you want to join MLSA?</label>
-                            <textarea name="whyJoin" rows="3" placeholder="Share your motivation..." class="w-full px-4 py-3 rounded-xl border border-slate-600/50 bg-slate-800/50 text-white placeholder-gray-500 focus:ring-2 focus:ring-blue-500 outline-none backdrop-blur-sm transition-all duration-300 resize-none"></textarea>
+                            <label class="block text-xs sm:text-sm font-semibold text-gray-300 mb-2">Why do you want to join MLSA? <span class="text-red-400">*</span></label>
+                            <textarea name="whyJoin" rows="3" placeholder="Share your motivation..." class="w-full px-4 py-3 rounded-xl border border-slate-600/50 bg-slate-800/50 text-white placeholder-gray-500 focus:ring-2 focus:ring-blue-500 outline-none backdrop-blur-sm transition-all duration-300 resize-none" required></textarea>
+                            <span class="error-message"></span>
                         </div>
                         <div class="form-input">
-                            <label class="block text-xs sm:text-sm font-semibold text-gray-300 mb-2">Your opinion about MLSA</label>
-                            <textarea name="opinionMlsa" rows="3" placeholder="What do you think about MLSA?" class="w-full px-4 py-3 rounded-xl border border-slate-600/50 bg-slate-800/50 text-white placeholder-gray-500 focus:ring-2 focus:ring-blue-500 outline-none backdrop-blur-sm transition-all duration-300 resize-none"></textarea>
+                            <label class="block text-xs sm:text-sm font-semibold text-gray-300 mb-2">Your opinion about MLSA <span class="text-red-400">*</span></label>
+                            <textarea name="opinionMlsa" rows="3" placeholder="What do you think about MLSA?" class="w-full px-4 py-3 rounded-xl border border-slate-600/50 bg-slate-800/50 text-white placeholder-gray-500 focus:ring-2 focus:ring-blue-500 outline-none backdrop-blur-sm transition-all duration-300 resize-none" required></textarea>
+                            <span class="error-message"></span>
                         </div>
                         <div class="form-input">
-                            <label class="block text-xs sm:text-sm font-semibold text-gray-300 mb-2">Describe your personality</label>
-                            <textarea name="personality" rows="3" placeholder="Tell us about yourself..." class="w-full px-4 py-3 rounded-xl border border-slate-600/50 bg-slate-800/50 text-white placeholder-gray-500 focus:ring-2 focus:ring-blue-500 outline-none backdrop-blur-sm transition-all duration-300 resize-none"></textarea>
+                            <label class="block text-xs sm:text-sm font-semibold text-gray-300 mb-2">Describe your personality <span class="text-red-400">*</span></label>
+                            <textarea name="personality" rows="3" placeholder="Tell us about yourself..." class="w-full px-4 py-3 rounded-xl border border-slate-600/50 bg-slate-800/50 text-white placeholder-gray-500 focus:ring-2 focus:ring-blue-500 outline-none backdrop-blur-sm transition-all duration-300 resize-none" required></textarea>
+                            <span class="error-message"></span>
                         </div>
                         <div class="form-input">
-                            <label class="block text-xs sm:text-sm font-semibold text-gray-300 mb-2">What do you consider your strengths and weaknesses?</label>
-                            <textarea name="strengthsWeaknesses" rows="3" placeholder="Share your strengths and areas for improvement..." class="w-full px-4 py-3 rounded-xl border border-slate-600/50 bg-slate-800/50 text-white placeholder-gray-500 focus:ring-2 focus:ring-blue-500 outline-none backdrop-blur-sm transition-all duration-300 resize-none"></textarea>
+                            <label class="block text-xs sm:text-sm font-semibold text-gray-300 mb-2">What do you consider your strengths and weaknesses? <span class="text-red-400">*</span></label>
+                            <textarea name="strengthsWeaknesses" rows="3" placeholder="Share your strengths and areas for improvement..." class="w-full px-4 py-3 rounded-xl border border-slate-600/50 bg-slate-800/50 text-white placeholder-gray-500 focus:ring-2 focus:ring-blue-500 outline-none backdrop-blur-sm transition-all duration-300 resize-none" required></textarea>
+                            <span class="error-message"></span>
                         </div>
                     </div>
                 </div>
             </div>
+
 
             <!-- Step 3: Technical Assessment -->
             <div id="step-3" class="form-step hidden">
@@ -477,44 +537,53 @@
                 </h2>
                 <p id="domain-display" class="text-blue-400 mb-6 font-semibold text-sm">Domain: Web Development</p>
 
+
                 <div id="app-dev-questions" class="space-y-5">
                     <div class="form-input">
-                        <label class="block text-xs sm:text-sm font-semibold text-gray-300 mb-2">Which tech stack or language are you familiar with?</label>
-                        <input type="text" name="techStack" placeholder="e.g., React, Vue, Node.js..." class="w-full px-4 py-3 rounded-xl border border-slate-600/50 bg-slate-800/50 text-white placeholder-gray-500 focus:ring-2 focus:ring-blue-500 outline-none backdrop-blur-sm transition-all duration-300">
+                        <label class="block text-xs sm:text-sm font-semibold text-gray-300 mb-2">Which tech stack or language are you familiar with? <span class="text-red-400">*</span></label>
+                        <input type="text" name="techStack" placeholder="e.g., React, Vue, Node.js..." class="w-full px-4 py-3 rounded-xl border border-slate-600/50 bg-slate-800/50 text-white placeholder-gray-500 focus:ring-2 focus:ring-blue-500 outline-none backdrop-blur-sm transition-all duration-300" required>
+                        <span class="error-message"></span>
                     </div>
                     <div class="form-input">
-                        <label class="block text-xs sm:text-sm font-semibold text-gray-300 mb-2">Do you have any experience with backend technologies?</label>
-                        <textarea name="backendExperience" rows="2" placeholder="Describe your backend experience..." class="w-full px-4 py-3 rounded-xl border border-slate-600/50 bg-slate-800/50 text-white placeholder-gray-500 focus:ring-2 focus:ring-blue-500 outline-none backdrop-blur-sm transition-all duration-300 resize-none"></textarea>
+                        <label class="block text-xs sm:text-sm font-semibold text-gray-300 mb-2">Do you have any experience with backend technologies? <span class="text-red-400">*</span></label>
+                        <textarea name="backendExperience" rows="2" placeholder="Describe your backend experience..." class="w-full px-4 py-3 rounded-xl border border-slate-600/50 bg-slate-800/50 text-white placeholder-gray-500 focus:ring-2 focus:ring-blue-500 outline-none backdrop-blur-sm transition-all duration-300 resize-none" required></textarea>
+                        <span class="error-message"></span>
                     </div>
                     <div class="form-input">
-                        <label class="block text-xs sm:text-sm font-semibold text-gray-300 mb-2">Feature vs Performance: Your approach?</label>
-                        <textarea name="featureVsPerformance" rows="2" placeholder="How would you handle this trade-off?" class="w-full px-4 py-3 rounded-xl border border-slate-600/50 bg-slate-800/50 text-white placeholder-gray-500 focus:ring-2 focus:ring-blue-500 outline-none backdrop-blur-sm transition-all duration-300 resize-none"></textarea>
+                        <label class="block text-xs sm:text-sm font-semibold text-gray-300 mb-2">Feature vs Performance: Your approach? <span class="text-red-400">*</span></label>
+                        <textarea name="featureVsPerformance" rows="2" placeholder="How would you handle this trade-off?" class="w-full px-4 py-3 rounded-xl border border-slate-600/50 bg-slate-800/50 text-white placeholder-gray-500 focus:ring-2 focus:ring-blue-500 outline-none backdrop-blur-sm transition-all duration-300 resize-none" required></textarea>
+                        <span class="error-message"></span>
                     </div>
                     <div class="form-input">
-                        <label class="block text-xs sm:text-sm font-semibold text-gray-300 mb-2">UI consistency vs Feature richness: Which do you prioritize?</label>
-                        <textarea name="uiConsistency" rows="2" placeholder="Your perspective..." class="w-full px-4 py-3 rounded-xl border border-slate-600/50 bg-slate-800/50 text-white placeholder-gray-500 focus:ring-2 focus:ring-blue-500 outline-none backdrop-blur-sm transition-all duration-300 resize-none"></textarea>
+                        <label class="block text-xs sm:text-sm font-semibold text-gray-300 mb-2">UI consistency vs Feature richness: Which do you prioritize? <span class="text-red-400">*</span></label>
+                        <textarea name="uiConsistency" rows="2" placeholder="Your perspective..." class="w-full px-4 py-3 rounded-xl border border-slate-600/50 bg-slate-800/50 text-white placeholder-gray-500 focus:ring-2 focus:ring-blue-500 outline-none backdrop-blur-sm transition-all duration-300 resize-none" required></textarea>
+                        <span class="error-message"></span>
                     </div>
                     <div class="form-input">
-                        <label class="block text-xs sm:text-sm font-semibold text-gray-300 mb-2">Example of an app with great UI/UX</label>
-                        <input type="text" name="appExample" placeholder="e.g., Figma, Slack, Notion..." class="w-full px-4 py-3 rounded-xl border border-slate-600/50 bg-slate-800/50 text-white placeholder-gray-500 focus:ring-2 focus:ring-blue-500 outline-none backdrop-blur-sm transition-all duration-300">
+                        <label class="block text-xs sm:text-sm font-semibold text-gray-300 mb-2">Example of an app with great UI/UX <span class="text-red-400">*</span></label>
+                        <input type="text" name="appExample" placeholder="e.g., Figma, Slack, Notion..." class="w-full px-4 py-3 rounded-xl border border-slate-600/50 bg-slate-800/50 text-white placeholder-gray-500 focus:ring-2 focus:ring-blue-500 outline-none backdrop-blur-sm transition-all duration-300" required>
+                        <span class="error-message"></span>
                     </div>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 pt-4 border-t border-slate-700/50">
                         <div class="form-input">
-                            <label class="block text-xs sm:text-sm font-semibold text-gray-300 mb-2">Comfort with Git/GitHub (1-10)</label>
-                            <input type="number" name="gitComfort" min="1" max="10" placeholder="Rate yourself" class="w-full px-4 py-3 rounded-xl border border-slate-600/50 bg-slate-800/50 text-white placeholder-gray-500 focus:ring-2 focus:ring-blue-500 outline-none backdrop-blur-sm transition-all duration-300">
+                            <label class="block text-xs sm:text-sm font-semibold text-gray-300 mb-2">Comfort with Git/GitHub (1-10) <span class="text-red-400">*</span></label>
+                            <input type="number" name="gitComfort" min="1" max="10" placeholder="Rate yourself" class="w-full px-4 py-3 rounded-xl border border-slate-600/50 bg-slate-800/50 text-white placeholder-gray-500 focus:ring-2 focus:ring-blue-500 outline-none backdrop-blur-sm transition-all duration-300" required>
+                            <span class="error-message"></span>
                         </div>
                         <div class="form-input">
-                            <label class="block text-xs sm:text-sm font-semibold text-gray-300 mb-2">Comfort working in a team (1-10)</label>
-                            <input type="number" name="teamComfort" min="1" max="10" placeholder="Rate yourself" class="w-full px-4 py-3 rounded-xl border border-slate-600/50 bg-slate-800/50 text-white placeholder-gray-500 focus:ring-2 focus:ring-blue-500 outline-none backdrop-blur-sm transition-all duration-300">
+                            <label class="block text-xs sm:text-sm font-semibold text-gray-300 mb-2">Comfort working in a team (1-10) <span class="text-red-400">*</span></label>
+                            <input type="number" name="teamComfort" min="1" max="10" placeholder="Rate yourself" class="w-full px-4 py-3 rounded-xl border border-slate-600/50 bg-slate-800/50 text-white placeholder-gray-500 focus:ring-2 focus:ring-blue-500 outline-none backdrop-blur-sm transition-all duration-300" required>
+                            <span class="error-message"></span>
                         </div>
                     </div>
                     <div class="form-input">
-                        <label class="block text-xs sm:text-sm font-semibold text-gray-300 mb-2">Any additional info</label>
-                        <textarea name="additionalInfo" rows="2" placeholder="Anything else you'd like to add?" class="w-full px-4 py-3 rounded-xl border border-slate-600/50 bg-slate-800/50 text-white placeholder-gray-500 focus:ring-2 focus:ring-blue-500 outline-none backdrop-blur-sm transition-all duration-300 resize-none"></textarea>
+                        <label class="block text-xs sm:text-sm font-semibold text-gray-300 mb-2">Any additional info <span class="text-red-400">*</span></label>
+                        <textarea name="additionalInfo" rows="2" placeholder="Anything else you'd like to add?" class="w-full px-4 py-3 rounded-xl border border-slate-600/50 bg-slate-800/50 text-white placeholder-gray-500 focus:ring-2 focus:ring-blue-500 outline-none backdrop-blur-sm transition-all duration-300 resize-none" required></textarea>
+                        <span class="error-message"></span>
                     </div>
                 </div>
             </div>
-
+            
             <!-- Navigation Buttons -->
             <div class="mt-10 pt-6 border-t border-slate-700/50 flex justify-between gap-4">
                 <button type="button" id="back-button" class="btn-modern flex items-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 rounded-lg text-gray-300 hover:text-white border border-slate-600/50 hover:border-blue-400/50 transition-all hidden" onclick="changeStep(-1)">
@@ -536,6 +605,7 @@
             </div>
         </form>
 
+
         <!-- Success Message -->
         <div id="success-message" class="hidden success-message glass-card p-8 sm:p-12 rounded-3xl text-center max-w-md mx-auto mt-10">
             <div class="relative mb-6">
@@ -548,6 +618,7 @@
             </p>
         </div>
     </div>
+
 
     <script>
         let currentStep = 1;
@@ -589,9 +660,11 @@
             document.body.style.transition = 'all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)';
         });
 
+
         document.addEventListener('DOMContentLoaded', () => {
             lucide.createIcons();
         });
+
 
         // --- VALIDATION ---
         function validateStep1() {
@@ -599,16 +672,19 @@
             const requiredInputs = form.querySelectorAll('#step-1 input[required]');
             let isValid = true;
 
+
             requiredInputs.forEach(input => {
                 if (!input.value.trim()) {
                     isValid = false;
                 }
             });
 
+
             if (!isValid) {
                 alert("Please fill in all required fields on Step 1.");
                 return false;
             }
+
 
             if (!kiitMail.toLowerCase().endsWith('@kiit.ac.in')) {
                 alert("Please use your official KIIT email ending in @kiit.ac.in.");
@@ -617,16 +693,51 @@
             return true;
         }
 
+
         function validateStep2() {
-            const domain = form.querySelector('select[name="domain"]').value;
-            const intro = form.querySelector('textarea[name="introduceSelf"]').value;
+            const step2 = document.getElementById('step-2');
+            const domain = step2.querySelector('select[name="domain"]').value;
+            const textareas = step2.querySelectorAll('textarea[required]');
             
-            if (!domain || !intro.trim()) {
-                alert("Please select a domain and introduce yourself.");
+            if (!domain) {
+                alert("Please select a domain.");
                 return false;
             }
+
+            let isValid = true;
+            textareas.forEach(textarea => {
+                if (!textarea.value.trim()) {
+                    isValid = false;
+                }
+            });
+
+            if (!isValid) {
+                alert("Please fill in all required fields on Step 2. All sections must be completed.");
+                return false;
+            }
+            
             return true;
         }
+
+        function validateStep3() {
+            const step3 = document.getElementById('step-3');
+            const allRequired = step3.querySelectorAll('input[required], textarea[required]');
+            
+            let isValid = true;
+            allRequired.forEach(field => {
+                if (!field.value.trim()) {
+                    isValid = false;
+                }
+            });
+
+            if (!isValid) {
+                alert("Please fill in all required fields on Step 3. All sections must be completed.");
+                return false;
+            }
+
+            return true;
+        }
+
 
         // --- STEP MANAGEMENT ---
         function updateUI() {
@@ -634,10 +745,12 @@
                 stepDiv.classList.toggle('hidden', index + 1 !== currentStep);
             });
 
+
             document.querySelectorAll('.step-indicator').forEach((indicator, index) => {
                 const stepNum = index + 1;
                 const isActive = stepNum === currentStep;
                 const isCompleted = stepNum < currentStep;
+
 
                 if (isCompleted) {
                     indicator.className = 'step-indicator w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center font-bold border-2 bg-gradient-to-br from-green-500 to-emerald-600 border-green-500 text-white transition-all shadow-lg shadow-green-500/30';
@@ -650,10 +763,12 @@
                 }
             });
 
+
             document.getElementById('back-button').classList.toggle('hidden', currentStep === 1);
             document.getElementById('next-button').classList.toggle('hidden', currentStep === 3);
             document.getElementById('submit-button').classList.toggle('hidden', currentStep !== 3);
         }
+
 
         function updateDomainQuestions() {
             const domain = document.getElementById('domain-select').value;
@@ -662,6 +777,7 @@
             
             domainDisplay.textContent = `Domain: ${domain || 'Not Selected'}`;
 
+
             if (domain === 'App Development') {
                 appDevQuestions.classList.remove('hidden');
             } else {
@@ -669,19 +785,24 @@
             }
         }
 
+
         function changeStep(direction) {
             let nextStep = currentStep + direction;
+
 
             if (direction > 0) {
                 if (currentStep === 1 && !validateStep1()) return;
                 if (currentStep === 2 && !validateStep2()) return;
+                if (currentStep === 3 && !validateStep3()) return;
             }
+
 
             if (nextStep >= 1 && nextStep <= 3) {
                 currentStep = nextStep;
                 updateUI();
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }
+
 
             if (currentStep === 3) {
                 updateDomainQuestions();
@@ -690,14 +811,21 @@
         
         document.getElementById('domain-select').addEventListener('change', updateDomainQuestions);
 
+
         // --- FORM SUBMISSION ---
         form.addEventListener('submit', (e) => {
             e.preventDefault();
+
+            // Final validation before submit
+            if (!validateStep3()) {
+                return;
+            }
             
             const submitBtn = document.getElementById('submit-button');
             submitBtn.disabled = true;
             submitBtn.innerHTML = '<i data-lucide="loader" class="w-4 h-4 animate-spin"></i> Submitting...';
             lucide.createIcons();
+
 
             const formData = {};
             new FormData(form).forEach((value, key) => {
@@ -705,11 +833,13 @@
             });
             console.log("Final Form Data:", formData);
 
+
             setTimeout(() => {
                 form.classList.add('hidden');
                 document.getElementById('success-message').classList.remove('hidden');
             }, 1500);
         });
+
 
         // Initial setup
         updateUI();
