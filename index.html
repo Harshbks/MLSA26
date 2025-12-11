@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MLSA KIIT Recruitment 2026</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'mlsa-blue': '#1e40af',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        slideInLeft: {
+                            '0%': { opacity: '0', transform: 'translateX(-30px)' },
+                            '100%': { opacity: '1', transform: 'translateX(0)' }
+                        },
+                        slideInRight: {
+                            '0%': { opacity: '0', transform: 'translateX(30px)' },
+                            '100%': { opacity: '1', transform: 'translateX(0)' }
+                        },
+                        pulse3: {
+                            '0%, 100%': { opacity: '1' },
+                            '50%': { opacity: '0.8' }
+                        },
+                        glow: {
+                            '0%, 100%': { boxShadow: '0 0 20px rgba(59, 130, 246, 0.3)' },
+                            '50%': { boxShadow: '0 0 40px rgba(59, 130, 246, 0.6)' }
+                        }
+                    },
+                    animation: {
+                        fadeInUp: 'fadeInUp 0.6s ease-out',
+                        slideInLeft: 'slideInLeft 0.6s ease-out',
+                        slideInRight: 'slideInRight 0.6s ease-out',
+                        pulse3: 'pulse3 2s infinite',
+                        glow: 'glow 2s infinite'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        :root {
+            /* Dark Mode Colors (Default) */
+            --bg-gradient-1: #1a1c2c;
+            --bg-gradient-2: #4a192c;
+            --bg-gradient-3: #0f2027;
+            --bg-gradient-4: #2c5364;
+            
+            /* Higher opacity for better text readability */
+            --glass-bg: rgba(30, 30, 40, 0.75); 
+            --glass-border: rgba(255, 255, 255, 0.1);
+            
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0b0;
+            
+            /* Distinct input background */
+            --input-bg: rgba(0, 0, 0, 0.4);
+            --input-border: rgba(255, 255, 255, 0.15);
+            --input-text: #ffffff;
+            
+            --btn-bg: rgba(255, 255, 255, 0.1);
+            --btn-hover: rgba(255, 255, 255, 0.2);
+            
+            --shadow-color: rgba(0, 0, 0, 0.25);
+            --accent-glow: rgba(100, 200, 255, 0.3);
+            
+            --success-color: #4ade80;
+            --warning-color: #facc15;
+            --error-color: #ef4444;
+            
+            /* Report Card Specifics */
+            --report-bg: #ffffff;
+            --report-text: #1e293b;
+        }
+
+        [data-theme="light"] {
+            --bg-gradient-1: #8EC5FC;
+            --bg-gradient-2: #E0C3FC;
+            --bg-gradient-3: #ffffff;
+            --bg-gradient-4: #D9AFD9;
+            
+            --glass-bg: rgba(255, 255, 255, 0.85);
+            --glass-border: rgba(255, 255, 255, 1);
+            
+            --text-primary: #111827;
+            --text-secondary: #4b5563;
+            
+            --input-bg: #ffffff;
+            --input-border: #cbd5e1;
+            --input-text: #1e293b;
+            
+            --btn-bg: #ffffff;
+            --btn-hover: #f8fafc;
+            
+            --shadow-color: rgba(0, 0, 0, 0.08);
+            --accent-glow: rgba(99, 102, 241, 0.4);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            background: linear-gradient(-45deg, var(--bg-gradient-1), var(--bg-gradient-2), var(--bg-gradient-3), var(--bg-gradient-4));
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            color: var(--text-primary);
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Glassmorphism Card */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            box-shadow: 0 8px 32px var(--shadow-color);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            background: var(--glass-bg);
+            border-color: var(--accent-glow);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px var(--accent-glow);
+        }
+
+        /* Smooth input transitions */
+        input, textarea, select {
+            background-color: var(--input-bg) !important;
+            color: var(--input-text) !important;
+            border-color: var(--input-border) !important;
+            transition: all 0.3s ease !important;
+        }
+
+        input::placeholder, textarea::placeholder {
+            color: var(--text-secondary) !important;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            transform: translateY(-2px);
+            box-shadow: 0 0 0 3px var(--accent-glow) !important;
+            border-color: var(--accent-glow) !important;
+        }
+
+        /* Button Animations */
+        .btn-modern {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .btn-modern::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.5s, height 0.5s;
+        }
+
+        .btn-modern:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-modern:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 40px var(--accent-glow);
+        }
+
+        .btn-modern:active {
+            transform: translateY(-2px);
+        }
+
+        /* Form Step Animation */
+        .form-step {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .form-step.hidden {
+            display: none;
+        }
+
+        /* Progress Bar Animation */
+        .progress-line {
+            position: absolute;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-glow), var(--text-primary));
+            transition: width 0.5s ease;
+        }
+
+        /* Step Indicator Pulse */
+        .step-indicator {
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .step-indicator.active {
+            animation: glow 2s infinite;
+        }
+
+        /* Smooth Page Transitions */
+        body {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 640px) {
+            .form-step {
+                animation: fadeInUp 0.5s ease-out forwards;
+            }
+
+            .glass-card {
+                padding: 1.25rem !important;
+                border-radius: 16px;
+            }
+        }
+
+        /* Enhanced Input Styling */
+        .form-input {
+            position: relative;
+        }
+
+        .form-input input::placeholder,
+        .form-input textarea::placeholder {
+            transition: color 0.3s ease;
+        }
+
+        .form-input input:focus::placeholder,
+        .form-input textarea:focus::placeholder {
+            color: rgba(59, 130, 246, 0.5);
+        }
+
+        /* Gradient Text */
+        .gradient-text {
+            background: linear-gradient(135deg, var(--accent-glow), var(--text-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Success Animation */
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .success-message {
+            animation: slideDown 0.6s ease-out;
+        }
+
+        /* Nav Background Blur */
+        .nav-blur {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--glass-border);
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        /* Theme Toggle Button */
+            background : var(--glass-bg);
+            border : 1px solid var(--glass-border);
+            box-shadow : 0 4px 12px var(--shadow-color);
+            color : var(--text-primary);
+            cursor : pointer;
+            transition : all 0.3s ease;
+        }
+
+            transform: scale(1.1);
+            box-shadow: 0 6px 16px var(--shadow-color);
+        }
+
+        /* Smooth Reference Content Toggle */
+        .reference-content {
+            display: none;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .reference-content.show {
+            display: block;
+            animation: fadeInUp 0.4s ease-out;
+        }
+
+        .reference-toggle {
+            cursor: pointer;
+            user-select: none;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .reference-toggle:hover {
+            color: var(--accent-glow);
+        }
+    </style>
+</head>
+<body data-theme="dark">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full top-0 z-50 nav-blur">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-2 sm:gap-3 animate-fadeInUp">
+                <div class="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center font-bold text-sm sm:text-base shadow-lg" style="box-shadow: 0 0 20px var(--accent-glow); color: var(--text-primary);">M</div>
+                <div class="flex flex-col">
+                    <h1 class="text-base sm:text-xl font-bold" style="color: var(--text-primary);">MLSA KIIT</h1>
+                    <p class="text-xs sm:text-sm gradient-text font-semibold">Recruitment 2026</p>
+                </div>
+            </div>
+            <button id="theme-toggle" class="p-2 rounded-full transition-all duration-300 hover:scale-110">
+                <i data-lucide="sun" class="w-5 h-5 sm:w-6 sm:h-6"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="pt-20 sm:pt-28 pb-12 px-4 sm:px-6 max-w-4xl mx-auto">
+        
+        <!-- Progress Indicators -->
+        <div class="mb-10 sm:mb-12 flex justify-between items-center relative">
+            <div class="absolute left-0 sm:left-[20px] right-0 sm:right-[20px] top-1/2 h-1 bg-gradient-to-r from-transparent via-blue-500/20 to-transparent -z-10"></div>
+            
+            <div class="flex justify-between w-full gap-2 sm:gap-0">
+                <div id="step-indicator-1" class="step-indicator w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center font-bold border-2 bg-gradient-to-br from-blue-600 to-blue-700 border-blue-500 text-white transition-all shadow-lg shadow-blue-500/30 active" style="animation: glow 2s infinite;">1</div>
+                <div id="step-indicator-2" class="step-indicator w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center font-bold border-2 bg-slate-700/50 border-slate-600 text-gray-400 transition-all backdrop-blur-sm">2</div>
+                <div id="step-indicator-3" class="step-indicator w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center font-bold border-2 bg-slate-700/50 border-slate-600 text-gray-400 transition-all backdrop-blur-sm">3</div>
+            </div>
+        </div>
+
+        <!-- Form Container -->
+        <form id="recruitment-form" class="glass-card p-6 sm:p-8 md:p-10 space-y-6">
+            
+            <!-- Step 1: Personal Details -->
+            <div id="step-1" class="form-step">
+                <h2 class="text-2xl sm:text-3xl font-bold text-white mb-8 animate-slideInLeft">
+                    <span class="gradient-text">Subject Identification </span>
+                </h2>
+                
+                <div class="space-y-5">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+                        <div class="form-input">
+                            <label class="block text-xs sm:text-sm font-semibold text-gray-300 mb-2">Name of Student <span class="text-red-400">*</span></label>
+                            <input type="text" name="fullName" required placeholder="Enter your full name" class="w-full px-4 py-3 rounded-xl border border-slate-600/50 bg-slate-800/50 text-white placeholder-gray-500 focus:ring-2 focus:ring-blue-500 outline-none backdrop-blur-sm transition-all duration-300">
+                        </div>
+                        <div class="form-input">
+                            <label class="block text-xs sm:text-sm font-semibold text-gray-300 mb-2">Email <span class="text-red-400">*</span></label>
+                            <input type="email" name="email" required placeholder="your.email@example.com" class="w-full px-4 py-3 rounded-xl border border-slate-600/50 bg-slate-800/50 text-white placeholder-gray-500 focus:ring-2 focus:ring-blue-500 outline-none backdrop-blur-sm transition-all duration-300">
+                        </div>
+                        <div class="form-input">
+                            <label class="block text-xs sm:text-sm font-semibold text-gray-300 mb-2">Roll Number <span class="text-red-400">*</span></label>
+                            <input type="text" name="rollNumber" required placeholder="e.g., 240516gx" class="w-full px-4 py-3 rounded-xl border border-slate-600/50 bg-slate-800/50 text-white placeholder-gray-500 focus:ring-2 focus:ring-blue-500 outline-none backdrop-blur-sm transition-all duration-300">
+                        </div>
+                        <div class="form-input">
+                            <label class="block text-xs sm:text-sm font-semibold text-gray-300 mb-2">KIIT Mail <span class="text-red-400">*</span></label>
+                            <input type="email" name="kiitMail" required placeholder="name@kiit.ac.in" class="w-full px-4 py-3 rounded-xl border border-slate-600/50 bg-slate-800/50 text-white placeholder-gray-500 focus:ring-2 focus:ring-blue-500 outline-none backdrop-blur-sm transition-all duration-300">
+                        </div>
+                        <div class="form-input">
+                            <label class="block text-xs sm:text-sm font-semibold text-gray-300 mb-2">Year of Passing</label>
+                            <input type="number" name="yearPassing"  placeholder="e.g., 2027, 2028" class="w-full px-4 py-3 rounded-xl border border-slate-600/50 bg-slate-800/50 text-white placeholder-gray-500 focus:ring-2 focus:ring-blue-500 outline-none backdrop-blur-sm transition-all duration-300">
+                        </div>
+                        <div class="form-input">
+                            <label class="block text-xs sm:text-sm font-semibold text-gray-300 mb-2">Branch</label>
+                            <input type="text" name="branch" placeholder="e.g., CSE, ECE" class="w-full px-4 py-3 rounded-xl border border-slate-600/50 bg-slate-800/50 text-white placeholder-gray-500 focus:ring-2 focus:ring-blue-500 outline-none backdrop-blur-sm transition-all duration-300">
+                        </div>
+                    </div>
+
+                    <div class="space-y-4 mt-6 pt-6 border-t border-slate-700/50">
+                        <div class="form-input">
+                            <label class="block text-xs sm:text-sm font-semibold text-gray-300 mb-2">GitHub Link (Optional)</label>
+                            <input type="url" name="githubLink" placeholder="https://github.com/yourprofile" class="w-full px-4 py-3 rounded-xl border border-slate-600/50 bg-slate-800/50 text-white placeholder-gray-500 focus:ring-2 focus:ring-blue-500 outline-none backdrop-blur-sm transition-all duration-300">
+                        </div>
+                        <div class="form-input">
+                            <label class="block text-xs sm:text-sm font-semibold text-gray-300 mb-2">LinkedIn Link (Optional)</label>
+                            <input type="url" name="linkedinLink" placeholder="https://linkedin.com/in/yourprofile" class="w-full px-4 py-3 rounded-xl border border-slate-600/50 bg-slate-800/50 text-white placeholder-gray-500 focus:ring-2 focus:ring-blue-500 outline-none backdrop-blur-sm transition-all duration-300">
+                        </div>
+                        <div class="form-input">
+                            <label class="block text-xs sm:text-sm font-semibold text-gray-300 mb-2">Resume/CV Link (Optional)</label>
+                            <input type="url" name="resumeLink" placeholder="https://drive.google.com/your-resume" class="w-full px-4 py-3 rounded-xl border border-slate-600/50 bg-slate-800/50 text-white placeholder-gray-500 focus:ring-2 focus:ring-blue-500 outline-none backdrop-blur-sm transition-all duration-300">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2: Mission Selection -->
+            <div id="step-2" class="form-step hidden">
+                <h2 class="text-2xl sm:text-3xl font-bold text-white mb-8 animate-slideInRight">
+                    <span class="gradient-text">Mission Selection</span>
+                </h2>
+                
+                <div class="space-y-5">
+                    <div class="form-input">
+                        <label class="block text-xs sm:text-sm font-semibold text-gray-300 mb-2">Domain of Choice <span class="text-red-400">*</span></label>
+                        <select id="domain-select" name="domain" required class="w-full px-4 py-3 rounded-xl border border-slate-600/50 bg-slate-800/50 text-white focus:ring-2 focus:ring-blue-500 outline-none backdrop-blur-sm transition-all duration-300 appearance-none cursor-pointer pr-10" style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22rgb(100,116,139)%22 stroke-width=%222%22><polyline points=%226 9 12 15 18 9%22></polyline></svg>'); background-repeat: no-repeat; background-position: right 10px center; background-size: 20px;">
+                            <option value="">-- Select Your Domain --</option>
+                            <option value="Web Development">Web Development</option>
+                            <option value="App Development">App Development</option>
+                            <option value="AI ML">AI ML</option>
+                            <option value="Cyber Security">Cyber Security</option>
+                            <option value="Cloud">Cloud</option>
+                            <option value="Graphic Design">Graphic Design</option>
+                            <option value="Marketing">Marketing</option>
+                            <option value="UI/UX">UI/UX</option>
+                            <option value="AR/VR">Augmented/Virtual Reality</option>
+                            <option value="Broadcasting">Broadcasting</option>
+                        </select>
+                    </div>
+
+                    <div class="grid grid-cols-1 gap-4 sm:gap-5 space-y-4 pt-4 border-t border-slate-700/50">
+                        <div class="form-input">
+                            <label class="block text-xs sm:text-sm font-semibold text-gray-300 mb-2">Introduce Yourself <span class="text-red-400">*</span></label>
+                            <textarea name="introduceSelf" required rows="3" placeholder="Tell us about yourself..." class="w-full px-4 py-3 rounded-xl border border-slate-600/50 bg-slate-800/50 text-white placeholder-gray-500 focus:ring-2 focus:ring-blue-500 outline-none backdrop-blur-sm transition-all duration-300 resize-none"></textarea>
+                        </div>
+                        <div class="form-input">
+                            <label class="block text-xs sm:text-sm font-semibold text-gray-300 mb-2">Why do you want to join MLSA?</label>
+                            <textarea name="whyJoin" rows="3" placeholder="Share your motivation..." class="w-full px-4 py-3 rounded-xl border border-slate-600/50 bg-slate-800/50 text-white placeholder-gray-500 focus:ring-2 focus:ring-blue-500 outline-none backdrop-blur-sm transition-all duration-300 resize-none"></textarea>
+                        </div>
+                        <div class="form-input">
+                            <label class="block text-xs sm:text-sm font-semibold text-gray-300 mb-2">Your opinion about MLSA</label>
+                            <textarea name="opinionMlsa" rows="3" placeholder="What do you think about MLSA?" class="w-full px-4 py-3 rounded-xl border border-slate-600/50 bg-slate-800/50 text-white placeholder-gray-500 focus:ring-2 focus:ring-blue-500 outline-none backdrop-blur-sm transition-all duration-300 resize-none"></textarea>
+                        </div>
+                        <div class="form-input">
+                            <label class="block text-xs sm:text-sm font-semibold text-gray-300 mb-2">Describe your personality</label>
+                            <textarea name="personality" rows="3" placeholder="Tell us about yourself..." class="w-full px-4 py-3 rounded-xl border border-slate-600/50 bg-slate-800/50 text-white placeholder-gray-500 focus:ring-2 focus:ring-blue-500 outline-none backdrop-blur-sm transition-all duration-300 resize-none"></textarea>
+                        </div>
+                        <div class="form-input">
+                            <label class="block text-xs sm:text-sm font-semibold text-gray-300 mb-2">What do you consider your strengths and weaknesses?</label>
+                            <textarea name="strengthsWeaknesses" rows="3" placeholder="Share your strengths and areas for improvement..." class="w-full px-4 py-3 rounded-xl border border-slate-600/50 bg-slate-800/50 text-white placeholder-gray-500 focus:ring-2 focus:ring-blue-500 outline-none backdrop-blur-sm transition-all duration-300 resize-none"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3: Technical Assessment -->
+            <div id="step-3" class="form-step hidden">
+                <h2 class="text-2xl sm:text-3xl font-bold text-white mb-2 animate-slideInLeft">
+                    <span class="gradient-text">Technical Assessment</span>
+                </h2>
+                <p id="domain-display" class="text-blue-400 mb-6 font-semibold text-sm">Domain: Web Development</p>
+
+                <div id="app-dev-questions" class="space-y-5">
+                    <div class="form-input">
+                        <label class="block text-xs sm:text-sm font-semibold text-gray-300 mb-2">Which tech stack or language are you familiar with?</label>
+                        <input type="text" name="techStack" placeholder="e.g., React, Vue, Node.js..." class="w-full px-4 py-3 rounded-xl border border-slate-600/50 bg-slate-800/50 text-white placeholder-gray-500 focus:ring-2 focus:ring-blue-500 outline-none backdrop-blur-sm transition-all duration-300">
+                    </div>
+                    <div class="form-input">
+                        <label class="block text-xs sm:text-sm font-semibold text-gray-300 mb-2">Do you have any experience with backend technologies?</label>
+                        <textarea name="backendExperience" rows="2" placeholder="Describe your backend experience..." class="w-full px-4 py-3 rounded-xl border border-slate-600/50 bg-slate-800/50 text-white placeholder-gray-500 focus:ring-2 focus:ring-blue-500 outline-none backdrop-blur-sm transition-all duration-300 resize-none"></textarea>
+                    </div>
+                    <div class="form-input">
+                        <label class="block text-xs sm:text-sm font-semibold text-gray-300 mb-2">Feature vs Performance: Your approach?</label>
+                        <textarea name="featureVsPerformance" rows="2" placeholder="How would you handle this trade-off?" class="w-full px-4 py-3 rounded-xl border border-slate-600/50 bg-slate-800/50 text-white placeholder-gray-500 focus:ring-2 focus:ring-blue-500 outline-none backdrop-blur-sm transition-all duration-300 resize-none"></textarea>
+                    </div>
+                    <div class="form-input">
+                        <label class="block text-xs sm:text-sm font-semibold text-gray-300 mb-2">UI consistency vs Feature richness: Which do you prioritize?</label>
+                        <textarea name="uiConsistency" rows="2" placeholder="Your perspective..." class="w-full px-4 py-3 rounded-xl border border-slate-600/50 bg-slate-800/50 text-white placeholder-gray-500 focus:ring-2 focus:ring-blue-500 outline-none backdrop-blur-sm transition-all duration-300 resize-none"></textarea>
+                    </div>
+                    <div class="form-input">
+                        <label class="block text-xs sm:text-sm font-semibold text-gray-300 mb-2">Example of an app with great UI/UX</label>
+                        <input type="text" name="appExample" placeholder="e.g., Figma, Slack, Notion..." class="w-full px-4 py-3 rounded-xl border border-slate-600/50 bg-slate-800/50 text-white placeholder-gray-500 focus:ring-2 focus:ring-blue-500 outline-none backdrop-blur-sm transition-all duration-300">
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 pt-4 border-t border-slate-700/50">
+                        <div class="form-input">
+                            <label class="block text-xs sm:text-sm font-semibold text-gray-300 mb-2">Comfort with Git/GitHub (1-10)</label>
+                            <input type="number" name="gitComfort" min="1" max="10" placeholder="Rate yourself" class="w-full px-4 py-3 rounded-xl border border-slate-600/50 bg-slate-800/50 text-white placeholder-gray-500 focus:ring-2 focus:ring-blue-500 outline-none backdrop-blur-sm transition-all duration-300">
+                        </div>
+                        <div class="form-input">
+                            <label class="block text-xs sm:text-sm font-semibold text-gray-300 mb-2">Comfort working in a team (1-10)</label>
+                            <input type="number" name="teamComfort" min="1" max="10" placeholder="Rate yourself" class="w-full px-4 py-3 rounded-xl border border-slate-600/50 bg-slate-800/50 text-white placeholder-gray-500 focus:ring-2 focus:ring-blue-500 outline-none backdrop-blur-sm transition-all duration-300">
+                        </div>
+                    </div>
+                    <div class="form-input">
+                        <label class="block text-xs sm:text-sm font-semibold text-gray-300 mb-2">Any additional info</label>
+                        <textarea name="additionalInfo" rows="2" placeholder="Anything else you'd like to add?" class="w-full px-4 py-3 rounded-xl border border-slate-600/50 bg-slate-800/50 text-white placeholder-gray-500 focus:ring-2 focus:ring-blue-500 outline-none backdrop-blur-sm transition-all duration-300 resize-none"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation Buttons -->
+            <div class="mt-10 pt-6 border-t border-slate-700/50 flex justify-between gap-4">
+                <button type="button" id="back-button" class="btn-modern flex items-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 rounded-lg text-gray-300 hover:text-white border border-slate-600/50 hover:border-blue-400/50 transition-all hidden" onclick="changeStep(-1)">
+                    <i data-lucide="chevron-left" class="w-4 h-4 sm:w-5 sm:h-5"></i>
+                    <span class="hidden sm:inline">Back</span>
+                </button>
+                
+                <div id="next-submit-container" class="ml-auto flex gap-3">
+                    <button type="button" id="next-button" class="btn-modern flex items-center gap-2 px-6 sm:px-7 py-2.5 sm:py-3 rounded-lg bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold shadow-lg shadow-blue-500/30" onclick="changeStep(1)">
+                        <span>Next</span>
+                        <i data-lucide="chevron-right" class="w-4 h-4 sm:w-5 sm:h-5"></i>
+                    </button>
+                    
+                    <button type="submit" id="submit-button" class="btn-modern flex items-center gap-2 px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white font-semibold shadow-lg shadow-green-500/30 hidden">
+                        <span>Submit</span>
+                        <i data-lucide="send" class="w-4 h-4 sm:w-5 sm:h-5"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+
+        <!-- Success Message -->
+        <div id="success-message" class="hidden success-message glass-card p-8 sm:p-12 rounded-3xl text-center max-w-md mx-auto mt-10">
+            <div class="relative mb-6">
+                <div class="absolute inset-0 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full opacity-20 blur-xl"></div>
+                <i data-lucide="check-circle" class="w-16 h-16 sm:w-20 sm:h-20 text-green-400 mx-auto mb-4 relative"></i>
+            </div>
+            <h2 class="text-2xl sm:text-3xl font-bold text-white mb-3">Application Received!</h2>
+            <p class="text-gray-400 text-sm sm:text-base leading-relaxed">
+                Thank you for applying to MLSA KIIT. We will review your application and get back to you soon. Good luck! 🚀
+            </p>
+        </div>
+    </div>
+
+    <script>
+        let currentStep = 1;
+        const form = document.getElementById('recruitment-form');
+        const steps = [
+            document.getElementById('step-1'),
+            document.getElementById('step-2'),
+            document.getElementById('step-3')
+        ];
+        
+        // --- THEME TOGGLE ---
+        const body = document.body;
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        
+        // Detect user preference or use dark as default
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const savedTheme = localStorage.getItem('mlsa-theme');
+        const currentTheme = savedTheme || (prefersDark ? 'dark' : 'light');
+        
+        // Set initial theme
+        body.setAttribute('data-theme', currentTheme);
+        updateThemeIcon(currentTheme);
+        
+        function updateThemeIcon(theme) {
+            const icon = document.querySelector('#theme-toggle i');
+            icon.setAttribute('data-lucide', theme === 'dark' ? 'moon' : 'sun');
+            lucide.createIcons();
+        }
+        
+        themeToggleBtn.addEventListener('click', () => {
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('mlsa-theme', newTheme);
+            updateThemeIcon(newTheme);
+            
+            // Smooth transition
+            document.body.style.transition = 'all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)';
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+        });
+
+        // --- VALIDATION ---
+        function validateStep1() {
+            const kiitMail = form.querySelector('input[name="kiitMail"]').value;
+            const requiredInputs = form.querySelectorAll('#step-1 input[required]');
+            let isValid = true;
+
+            requiredInputs.forEach(input => {
+                if (!input.value.trim()) {
+                    isValid = false;
+                }
+            });
+
+            if (!isValid) {
+                alert("Please fill in all required fields on Step 1.");
+                return false;
+            }
+
+            if (!kiitMail.toLowerCase().endsWith('@kiit.ac.in')) {
+                alert("Please use your official KIIT email ending in @kiit.ac.in.");
+                return false;
+            }
+            return true;
+        }
+
+        function validateStep2() {
+            const domain = form.querySelector('select[name="domain"]').value;
+            const intro = form.querySelector('textarea[name="introduceSelf"]').value;
+            
+            if (!domain || !intro.trim()) {
+                alert("Please select a domain and introduce yourself.");
+                return false;
+            }
+            return true;
+        }
+
+        // --- STEP MANAGEMENT ---
+        function updateUI() {
+            steps.forEach((stepDiv, index) => {
+                stepDiv.classList.toggle('hidden', index + 1 !== currentStep);
+            });
+
+            document.querySelectorAll('.step-indicator').forEach((indicator, index) => {
+                const stepNum = index + 1;
+                const isActive = stepNum === currentStep;
+                const isCompleted = stepNum < currentStep;
+
+                if (isCompleted) {
+                    indicator.className = 'step-indicator w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center font-bold border-2 bg-gradient-to-br from-green-500 to-emerald-600 border-green-500 text-white transition-all shadow-lg shadow-green-500/30';
+                } else if (isActive) {
+                    indicator.className = 'step-indicator w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center font-bold border-2 bg-gradient-to-br from-blue-600 to-blue-700 border-blue-500 text-white transition-all shadow-lg shadow-blue-500/30 active';
+                    indicator.style.animation = 'glow 2s infinite';
+                } else {
+                    indicator.className = 'step-indicator w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center font-bold border-2 bg-slate-700/50 border-slate-600 text-gray-400 transition-all backdrop-blur-sm';
+                    indicator.style.animation = 'none';
+                }
+            });
+
+            document.getElementById('back-button').classList.toggle('hidden', currentStep === 1);
+            document.getElementById('next-button').classList.toggle('hidden', currentStep === 3);
+            document.getElementById('submit-button').classList.toggle('hidden', currentStep !== 3);
+        }
+
+        function updateDomainQuestions() {
+            const domain = document.getElementById('domain-select').value;
+            const domainDisplay = document.getElementById('domain-display');
+            const appDevQuestions = document.getElementById('app-dev-questions');
+            
+            domainDisplay.textContent = `Domain: ${domain || 'Not Selected'}`;
+
+            if (domain === 'App Development') {
+                appDevQuestions.classList.remove('hidden');
+            } else {
+                appDevQuestions.classList.add('hidden');
+            }
+        }
+
+        function changeStep(direction) {
+            let nextStep = currentStep + direction;
+
+            if (direction > 0) {
+                if (currentStep === 1 && !validateStep1()) return;
+                if (currentStep === 2 && !validateStep2()) return;
+            }
+
+            if (nextStep >= 1 && nextStep <= 3) {
+                currentStep = nextStep;
+                updateUI();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            if (currentStep === 3) {
+                updateDomainQuestions();
+            }
+        }
+        
+        document.getElementById('domain-select').addEventListener('change', updateDomainQuestions);
+
+        // --- FORM SUBMISSION ---
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('submit-button');
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i data-lucide="loader" class="w-4 h-4 animate-spin"></i> Submitting...';
+            lucide.createIcons();
+
+            const formData = {};
+            new FormData(form).forEach((value, key) => {
+                formData[key] = value;
+            });
+            console.log("Final Form Data:", formData);
+
+            setTimeout(() => {
+                form.classList.add('hidden');
+                document.getElementById('success-message').classList.remove('hidden');
+            }, 1500);
+        });
+
+        // Initial setup
+        updateUI();
+    </script>
+</body>
+</html>
